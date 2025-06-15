@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Khắc chế Liên Quân</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #111; color: #fff; }
+    select, button { padding: 10px; margin: 10px 0; width: 100%; font-size: 16px; }
+    .result { margin-top: 20px; padding: 15px; background: #222; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Ứng dụng khắc chế Liên Quân</h2>
+  <label for="hero">Chọn tướng địch:</label>
+  <select id="hero">
+    <option value="">-- Chọn một tướng --</option>
+    <option value="Lauriel">Lauriel</option>
+    <option value="Nakroth">Nakroth</option>
+    <option value="Murad">Murad</option>
+    <option value="Zata">Zata</option>
+    <option value="Violet">Violet</option>
+  </select>
+  <button onclick="counterHero()">Xem tướng khắc chế</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    const data = {
+      'Lauriel': 'Khắc chế tốt: Raz, Tulen, Gildur, Aleister',
+      'Nakroth': 'Khắc chế tốt: Wonder Woman, Omen, Arum',
+      'Murad': 'Khắc chế tốt: Zill, Aleister, Dirak',
+      'Zata': 'Khắc chế tốt: Ilumia, Dirak, Raz',
+      'Violet': 'Khắc chế tốt: Airi, Superman, Batman'
+    };
+
+    function counterHero() {
+      const hero = document.getElementById("hero").value;
+      const result = document.getElementById("result");
+      if (!hero) {
+        result.innerHTML = "Hãy chọn một tướng để xem khắc chế!";
+        return;
+      }
+      result.innerHTML = `<strong>${hero}</strong>: ${data[hero] || 'Chưa có dữ liệu'}`;
+    }
+  </script>
+</body>
+</html>
